@@ -1,13 +1,15 @@
-// manipulação dos itens
+// services/item.js
 
-//--> criar itens com subtotal calculado
-async function createItem(name, price, quantity) {
-    return{
+async function createItem(product, name, price, quantity) {
+    return {
+        product,
         name,
         price,
         quantity,
-        subtotal: () => price * quantity
+        subtotal() {
+            return this.price * this.quantity
+        }
     }
 }
-export default createItem;
 
+export default createItem

@@ -7,18 +7,26 @@ const myWhishList = []
 
 console.log("🛒  Welcome to the your Shopping Cart! 🛒")
 
-const item1 = await createItem("Absolut", 15.90, 1)
-const item2 = await createItem("Ballantines", 12.90, 1)
-const item3 = await createItem("Beefeater 24", 22.90,1)
+const item1 = await createItem("Vodka","Absolut", 10.01, 3)
+const item2 = await createItem("Whisky", "Ballantines", 15.01, 4)
+const item3 = await createItem("Gin", "Beefeater 24", 20.01,1)
 
 await cartService.addItem(myCart, item1)
 await cartService.addItem(myCart, item2)
 await cartService.addItem(myWhishList, item3)
 
-await cartService.deleteItem(myCart, item2.name)
-await cartService.deleteItem(myCart, item1.name)
+    // remover itens até o delete do mesmo
+//await cartService.removeItem(myCart, item2)
+//await cartService.removeItem(myCart, item2)
+//await cartService.removeItem(myCart, item2)
+//await cartService.removeItem(myCart, item2)
 
-console.log("💲 Shopping Cart TOTAL IS:")
+await cartService.displayCart(myCart)
+
+//await cartService.deleteItem(myCart, item2.name)
+//await cartService.deleteItem(myCart, item1.name)
+
+
 await cartService.calculateTotal(myCart)
-console.log("💝 Your Whish List Total IS:")
+console.log("\n💝 Your Whish List Total IS:")
 await cartService.calculateTotal(myWhishList)
